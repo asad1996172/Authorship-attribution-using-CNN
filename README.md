@@ -34,8 +34,6 @@ https://www.aclweb.org/anthology/D14-1181
 
 https://arxiv.org/abs/1609.06686
 
-# Progress Milestones
-
 # Design of Pipeline
 I use Convolutional Neural Network (CNN) classifier with word embeddings for authorship attribution. More specifically, each word is mapped to a continuous-valued word vector using Word2Vec. Each input document is represented as a concatenation of word embeddings where each word embedding corresponds to a word in original document. The CNN model is trained using these document representations as input for authorship attribution. Then I train the multi-channel CNN consisting of a static word embedding channel (word vectors trained by Word2Vec) and a non-static word embedding channel (word vectors trained initially by Word2Vec then updated during training).
 This feature set includes lexical and syntactic features.
@@ -55,7 +53,5 @@ Following table summarizes the results for 5 authors and 10 authors setting in b
 |Blogs 10-Authors   |78%   |35%   |85%   |
 
 As it can be seen, the deep learning model outperforms the machine learning based models. The reason in my point of view is the amount of data we have per author. Since we are using a 80-20 split, we have 80 articles per author to train and that gives the edge to CNN.
-# Complete Report with Results (December 1st)
-Applying this method on 10 Authors setting.
 
 The code used in this method is an implementation of CNN-Word-Word model from https://arxiv.org/abs/1609.06686
