@@ -20,12 +20,11 @@ import pickle
 from typing import List
 
 from colorama import Fore
+from jstylo_basic_9 import calculate_features
 from keras.preprocessing import text
 from sklearn.metrics import accuracy_score
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
-
-from jstylo_basic_9 import calculate_features
 
 
 def load_pickle_data(path: str):
@@ -58,7 +57,7 @@ def get_clean_text(input_text: str) -> str:
 def prepare_data_for_classification(data: List[tuple]) -> tuple:
     """
     Each row contains data in the following format: (input_text, author_label)
-    This function extracts the features for inputText and 
+    This function extracts the features for inputText and
     authorLabel from each row.
 
     :param data: List of tuples containing the raw text and the author id.
@@ -179,8 +178,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset",
         type=str,
-        choices=["amt", "blogs"],
-        help='Choose between "amt" and "blogs" datasets.',
+        choices=["blogs"],
+        help='Choose "blogs" dataset.',
     )
     parser.add_argument(
         "--train_test_data_path", type=str, help="Path to the train/test data."

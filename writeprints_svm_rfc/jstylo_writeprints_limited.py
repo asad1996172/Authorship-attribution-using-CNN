@@ -23,7 +23,7 @@ from typing import Dict, List
 
 def total_words(input_text: str) -> int:
     """
-    Returns the total number of words in the input text 
+    Returns the total number of words in the input text
     after removing punctuations and unifying case.
 
     Args:
@@ -40,11 +40,11 @@ def total_words(input_text: str) -> int:
 
 def unique_words_count(input_text: str) -> float:
     """
-    Calculates the ratio of unique words to 
+    Calculates the ratio of unique words to
     total words in the input text.
 
     Args:
-    input_text (str): The input text to calculate 
+    input_text (str): The input text to calculate
         the ratio of unique words to total words.
 
     Returns:
@@ -59,14 +59,14 @@ def unique_words_count(input_text: str) -> float:
 
 def larger_words_count(input_text: str) -> float:
     """
-    Calculates the ratio of words in the input 
+    Calculates the ratio of words in the input
     text that have a length greater than 4.
 
     Args:
     input_text (str): The input text to be analyzed.
 
     Returns:
-    float: The ratio of words in the input 
+    float: The ratio of words in the input
         text that have a length greater than 4.
     """
     words = text.text_to_word_sequence(
@@ -84,11 +84,11 @@ def larger_words_count(input_text: str) -> float:
 
 def average_characters_per_word(input_text: str) -> float:
     """
-    Calculates the average number of characters 
+    Calculates the average number of characters
     per word in the input text.
 
     Args:
-    input_text (str): The input text to calculate 
+    input_text (str): The input text to calculate
         the average characters per word for.
 
     Returns:
@@ -114,15 +114,15 @@ def character_count(input_text: str) -> int:
 
 def letters(input_text: str) -> List[float]:
     """
-    This function takes a string as input and returns a list 
+    This function takes a string as input and returns a list
     of floats representing the frequency of each letter in the input string.
 
     Args:
-    input_text (str): The input string for which the 
+    input_text (str): The input string for which the
         frequency of each letter needs to be calculated.
 
     Returns:
-    List[float]: A list of floats representing the 
+    List[float]: A list of floats representing the
         frequency of each letter in the input string.
     """
     input_text = str(input_text).lower()  # because its case sensitive
@@ -147,14 +147,14 @@ def letters(input_text: str) -> List[float]:
 
 def most_common_letter_bigrams(input_text: str) -> np.ndarray:
     """
-    This function takes in a string of text and returns 
+    This function takes in a string of text and returns
     the 50 most common letter bigrams in the text.
 
     Args:
     input_text (str): The input text to analyze
 
     Returns:
-    np.ndarray: An array of the 50 most common letter 
+    np.ndarray: An array of the 50 most common letter
         bigrams in the text, sorted in descending order of frequency.
     """
 
@@ -188,20 +188,20 @@ def most_common_letter_bigrams(input_text: str) -> np.ndarray:
 
 def most_common_letter_trigrams(input_text: str) -> List[float]:
     """
-    This function takes a string as input_text and returns 
+    This function takes a string as input_text and returns
     a list of 50 most common letter trigrams in the input_text.
-    The function first generates all possible letter trigrams 
+    The function first generates all possible letter trigrams
     and then counts the frequency of each trigram in the input_text.
-    The function then returns the 50 most common trigrams as a 
+    The function then returns the 50 most common trigrams as a
     list of floats, where each float represents the frequency of the trigram
     divided by the total number of characters in the input_text.
 
     Args:
-    input_text (str): The input text for which the most 
+    input_text (str): The input text for which the most
         common letter trigrams are to be found.
 
     Returns:
-    List[float]: A list of 50 most common letter trigrams 
+    List[float]: A list of 50 most common letter trigrams
         in the input_text, where each float represents the frequency of the trigram
         divided by the total number of characters in the input_text.
     """
@@ -237,14 +237,14 @@ def most_common_letter_trigrams(input_text: str) -> List[float]:
 
 def digits(input_text: str) -> List[float]:
     """
-    Calculates the frequency of digits in the input text and 
+    Calculates the frequency of digits in the input text and
     returns a list of floats representing the normalized counts.
 
     Args:
     - input_text (str): The input text to analyze
 
     Returns:
-    - List[float]: A list of floats representing the 
+    - List[float]: A list of floats representing the
         normalized counts of digits in the input text
     """
     digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -263,7 +263,7 @@ def digits(input_text: str) -> List[float]:
 
 def two_digit_numbers(input_text: str) -> np.ndarray:
     """
-    Returns an array of the counts of two-digit numbers 
+    Returns an array of the counts of two-digit numbers
     in the input text, divided by the character count of the input text.
 
     Args:
@@ -295,7 +295,7 @@ def two_digit_numbers(input_text: str) -> np.ndarray:
 
 def three_digit_numbers(input_text: str) -> np.ndarray:
     """
-    This function takes a string as input_text and returns an 
+    This function takes a string as input_text and returns an
     array of the top 50 most frequently occurring three-digit numbers
     in the input_text, divided by the total number of characters in the input_text.
 
@@ -304,7 +304,7 @@ def three_digit_numbers(input_text: str) -> np.ndarray:
 
     Returns:
     np.ndarray: An array of the top 50 most frequently occurring
-        three-digit numbers in the input_text, divided by 
+        three-digit numbers in the input_text, divided by
         the total number of characters in the input_text.
     """
     digits = []
@@ -329,15 +329,15 @@ def three_digit_numbers(input_text: str) -> np.ndarray:
 
 def word_lengths(input_text: str) -> List[int]:
     """
-    This function takes a string as input and returns a list of 
+    This function takes a string as input and returns a list of
     integers representing the frequency of words of different lengths in the input text.
 
     Args:
-    input_text (str): The input text for which the word length 
+    input_text (str): The input text for which the word length
         frequencies are to be calculated.
 
     Returns:
-    List[int]: A list of integers representing the frequency of 
+    List[int]: A list of integers representing the frequency of
         words of different lengths in the input text.
     """
 
@@ -362,15 +362,15 @@ def word_lengths(input_text: str) -> List[int]:
 
 def frequency_of_special_characters(input_text: str) -> np.array:
     """
-    Calculates the frequency of special characters in the 
+    Calculates the frequency of special characters in the
     input text and returns a numpy array of the frequencies.
 
     Args:
-    input_text (str): The input text for which the 
+    input_text (str): The input text for which the
         frequency of special characters is to be calculated.
 
     Returns:
-    np.array: A numpy array of the frequencies of 
+    np.array: A numpy array of the frequencies of
         special characters in the input text.
     """
     input_text = input_text.lower()
@@ -424,11 +424,11 @@ def function_words_percentage(input_text: str) -> np.array:
 
 def frequency_of_punctuation_characters(input_text: str) -> list:
     """
-    Calculates the frequency of punctuation characters 
+    Calculates the frequency of punctuation characters
     in the input text and returns a vector of frequencies.
 
     Args:
-    input_text (str): The input text to calculate the 
+    input_text (str): The input text to calculate the
         frequency of punctuation characters.
 
     Returns:
@@ -505,11 +505,11 @@ def pos_tag_bigram_frequency(input_text):
     Calculate the frequency of POS tag bigrams for the given text.
 
     Args:
-    - input_text (str): The input text to calculate POS 
+    - input_text (str): The input text to calculate POS
         tag bigram frequencies for.
 
     Returns:
-    - list[float]: A list of the 50 highest bigram 
+    - list[float]: A list of the 50 highest bigram
         frequencies corresponding to the POS tagset.
     """
 
@@ -556,11 +556,11 @@ def pos_tag_trigram_frequency(input_text):
     Calculate the frequency of POS tag trigrams for the given text.
 
     Args:
-    - input_text (str): The input text to calculate POS 
+    - input_text (str): The input text to calculate POS
         tag trigram frequencies for.
 
     Returns:
-    - list[float]: A list of the 50 highest trigram 
+    - list[float]: A list of the 50 highest trigram
         frequencies corresponding to the POS tagset.
     """
 
@@ -612,7 +612,7 @@ def unigram_words(input_text: str) -> List[int]:
     input_text (str): The input text to analyze.
 
     Returns:
-    List[int]: A list of the frequency of the top 
+    List[int]: A list of the frequency of the top
         50 most common words in the input text.
     """
     words = text.text_to_word_sequence(
@@ -629,11 +629,11 @@ def bigram_words(input_text):
     Calculate the frequency of word bigrams for the given text.
 
     Args:
-    - input_text (str): The input text for which to 
+    - input_text (str): The input text for which to
         calculate word bigram frequencies.
 
     Returns:
-    - list[float]: A list of the 50 highest bigram 
+    - list[float]: A list of the 50 highest bigram
         frequencies corresponding to the words in the input text.
     """
 
@@ -662,7 +662,7 @@ def trigram_words(input_text):
         calculate word trigram frequencies.
 
     Returns:
-    - list[float]: A list of the 50 highest trigram 
+    - list[float]: A list of the 50 highest trigram
         frequencies corresponding to the words in the input text.
     """
 
@@ -684,15 +684,15 @@ def trigram_words(input_text):
 
 def misspellings_percentage(input_text):
     """
-    Calculate the percentage of misspelled words from 
+    Calculate the percentage of misspelled words from
     a predefined list present in the given text.
 
     Args:
-    - input_text (str): The input text for which to 
+    - input_text (str): The input text for which to
         calculate the misspellings percentage.
 
     Returns:
-    - list[float]: A list of the percentages of the 
+    - list[float]: A list of the percentages of the
         50 highest frequent misspelled words corresponding to the words in the input text.
     """
 
@@ -724,7 +724,7 @@ def digits_percentage(input_text: str) -> float:
     Calculates the percentage of digits in the input text.
 
     Args:
-    input_text (str): The input text to 
+    input_text (str): The input text to
         calculate the percentage of digits.
 
     Returns:
@@ -755,7 +755,7 @@ def uppercase_letters_percentage(input_text: str) -> float:
     Calculates the percentage of uppercase letters in the given input text.
 
     Args:
-    input_text (str): The input text to calculate 
+    input_text (str): The input text to calculate
         the percentage of uppercase letters from.
 
     Returns:

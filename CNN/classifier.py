@@ -23,8 +23,8 @@ from typing import Dict, List
 
 import numpy as np
 from colorama import Fore
+from keras.layers import Conv1D, Dense, Dropout, Embedding, Flatten, MaxPooling1D, Merge
 from keras.models import Sequential
-from keras.layers import (Conv1D, Dense, Dropout, Embedding, Flatten, Merge, MaxPooling1D)
 from keras.preprocessing import text
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
@@ -50,7 +50,7 @@ def load_model(filepath: str) -> dict:
     """
     parent_dir = os.path.dirname(filepath)
     print(f"Loading GloVe model from {filepath}...")
-    
+
     # Check if the model exists. If not, download it.
     if not os.path.exists(filepath):
         download_glove(filepath)
@@ -123,8 +123,7 @@ def model_cnn_word_word(
     model.add(Dropout(0.5))
     model.add(Dense(number_of_authors, activation="softmax"))
 
-    model.compile(loss="categorical_crossentropy",
-                  optimizer="rmsprop", metrics=["acc"])
+    model.compile(loss="categorical_crossentropy", optimizer="rmsprop", metrics=["acc"])
 
     print(model.summary())
 
@@ -283,7 +282,12 @@ def test_classifier(
     print("Test Accuracy: %f" % (acc * 100))
 
 
-def main(number_of_authors: int, dataset_type: str, train_test_data_path: str, glove_model_path: str) -> None:
+def main(
+    number_of_authors: int,
+    dataset_type: str,
+    train_test_data_path: str,
+    glove_model_path: str,
+) -> None:
     """
     Main function to process the dataset, train a classifier, and test it.
 
@@ -317,7 +321,9 @@ def main(number_of_authors: int, dataset_type: str, train_test_data_path: str, g
     print(f"Total Train Articles: {len(train_data)}")
     print(f"Total Test Articles: {len(test_data)}\n")
 
-    tokenizer, model, max_sequence_length = train_classifier(X_train, y_train, glove_model_path, number_of_authors)
+    tokenizer, model, max_sequence_length = train_classifier(
+        X_train, y_train, glove_model_path, number_of_authors
+    )
     test_classifier(X_test, y_test, tokenizer, max_sequence_length, model)
     print(Fore.RESET)
 
@@ -333,8 +339,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset",
         type=str,
-        choices=["amt", "blogs"],
-        help='Choose between "amt" and "blogs" datasets.',
+        choices=["blogs"],
+        help='Choose "blogs" dataset.',
     )
     parser.add_argument(
         "--train_test_data_path", type=str, help="Path to the train/test data."
@@ -345,4 +351,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main(args.number_of_authors, args.dataset, args.train_test_data_path, args.glove_model_path)
+    main(
+        args.number_of_authors,
+        args.dataset,
+        args.train_test_data_path,
+        args.glove_model_path,
+    )

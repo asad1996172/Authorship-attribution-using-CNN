@@ -11,6 +11,7 @@ from sortedcontainers import SortedDict
 nlp = spacy.load("en_core_web_sm")
 cur_dir_path = os.path.dirname(os.path.realpath(__file__))
 
+
 def get_clean_text(input_text: str) -> str:
     """
     Convert input text to a clean string of words.

@@ -23,6 +23,8 @@ import argparse
 import pickle
 from typing import List
 
+import jstylo_writeprints_limited
+import writeprints_static
 from colorama import Fore
 from keras.preprocessing import text
 from sklearn.ensemble import RandomForestClassifier
@@ -31,9 +33,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from tqdm import tqdm
-
-import jstylo_writeprints_limited
-import writeprints_static
 
 
 def load_pickle_data(path: str):
@@ -193,8 +192,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset",
         type=str,
-        choices=["amt", "blogs"],
-        help='Choose between "amt" and "blogs" datasets.',
+        choices=["blogs"],
+        help='Choose "blogs" dataset.',
     )
     parser.add_argument(
         "--feature_set",
