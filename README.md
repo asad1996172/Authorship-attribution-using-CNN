@@ -1,11 +1,8 @@
-# Authorship Attribution using CNNs
-Given a set of documents by certain authors, correctly identify their authors using CNNs.
+# Authorship Attribution (Stylometric Features VS CNNs)
+Authorship Attribution can be defined as, given a set of documents from a set of authors, identify the author of an unseen document. This project is an attempt to do authorship attribution on blogs dataset, using multi channel CNNs and compare its performance with the traditional Machine Learning methods using stylometric feature sets like basic-9 and writeprints. The results show that multi channel CNNs outperform the traditional Machine Learning methods.
 
-# Project Overview
-I am going to be working on text classification using Convolutional Neural Networks (CNNs). Main Idea of my project is to classify blogs, given a set of blogs by a certain author correctly classify it. I am also going to compare it to some state of the art Machine Learning methods for authorship attribution.
-
-# Problem under investigation
-Problem that I am trying to tackle in this project is of Authorship Attribution. Authoship attribution means given a set of documents from a set of authors, create a system which, given a new unseen document, is able to tell the original author of that document. These systems have become extremely popular now-a-days. One important scnerio where such systems are being used is the identification of disputed documents. The problem arises when 2 or more people claim the authorship for a particular document. Another scnerio could be to attribute the old historical pieces of writings to different eras, or perhaps the original author as well. Hence there is a need to have strong authorship attribution systems.
+# Motivation
+One important scenario where authorship attribution models are being used is the identification of disputed documents. The problem arises when 2 or more people claim the authorship for a particular document. Another scenario is to attribute the old historical pieces of writings to different eras, or perhaps the original author as well. Hence there is a need to have strong authorship attribution models.
 
 # Dataset
 The dataset to be used in this project is called Blogger dataset. The collected posts are from 19,320 bloggers gathered from blogger.com in August 2004. I am downloading corpus from (http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm). According to this source "The corpus incorporates a total of 681,288 posts and over 140 million words - or approximately 35 posts and 7250 words per person.  
@@ -22,51 +19,59 @@ All bloggers included in the corpus fall into one of three age groups:
 
 For each age group there are an equal number of male and female bloggers.   
 
-Each blog in the corpus includes at least 200 occurrences of common English words. All formatting has been stripped with two exceptions. Individual posts within a single blogger are separated by the date of the following post and links within a post are denoted by the label urllink." 
-This corpus is provided by http://u.cs.biu.ac.il/~schlerj/schler_springsymp06.pdf.
+Each blog in the corpus includes at least 200 occurrences of common English words. All formatting has been stripped with two exceptions. Individual posts within a single blogger are separated by the date of the following post and links within a post are denoted by the label urllink. 
 
-# Software
-I am going to use python Keras (https://keras.io/) for development of this deep learning model. The main core of this model, since it is a convolutional nueral network (CNN), is the Conv1D layer from keras.layers. Other tentative libraries that i could use include Spacy, Pandas, nltk (for preprocessing), numpy e.t.c. They are to be used for calculating features sets called Basic-9 and Writeprints-static. I have also used scikitlearn for implementing machine learning based models.
+Original Paper: http://u.cs.biu.ac.il/~schlerj/schler_springsymp06.pdf.
 
-# Design of Pipeline
+# Machine Learning Models
+
+- **FFNN + Basic 9**
+- **SVM + Writeprints Limited**
+- **RFC + Writeprints Limited**
+- **SVM + Writeprints Static**
+- **RFC + Writeprints Static**
+- **Multi Channel CNN with a static and non static channel both initialized with Glove word embeddings**
+
+### Technical Details
+
+- Programming Language: Python
+- Data Cleaning: NLTK, Regular Expressions
+- Feature Extraction: NLTK, Spacy, Pandas
+- Machine Learning: Scikit-Learn, Keras
+
+### Multi Channel CNN
 I use Convolutional Neural Network (CNN) classifier with word embeddings for authorship attribution. More specifically, each word is mapped to a continuous-valued word vector using Word2Vec. Each input document is represented as a concatenation of word embeddings where each word embedding corresponds to a word in original document. The CNN model is trained using these document representations as input for authorship attribution. Then I train the multi-channel CNN consisting of a static word embedding channel (word vectors trained by Word2Vec) and a non-static word embedding channel (word vectors trained initially by Word2Vec then updated during training).
 This feature set includes lexical and syntactic features.
+
+![Model Diagram](./multi_channel_cnn/model.png)
+
+The code used in this method is an implementation of CNN-Word-Word model from https://arxiv.org/abs/1609.06686
+
+### Writeprints
 For writeprints-static we have Lexical features which include character-level and word-level features such as total words, average word lenght, number of short words, total characters, percentage of digits, percentage of uppercase characters, special character occurances, letter frequency, digit frequency, character bigrams frequency, character trigrams frequency and some vocabulary richness features. 
 Syntactic features include counts of function words (e.g., for, of), POS tags (e.g., Verb, Noun) and various punctuation (e.g., !;:). 
 As suggested by literature review, these features are used with Support Vector Machine (SVM) classifier.
+
+### Basic - 9
 Basic - 9 Feature set used in this setting includes the following 9 features covering character-level, word-level and sentence-level features alongwith some readability metrics: character count (excluding whitespaces), number of unique words, lexical density (percentage of lexical words), average syllables per word, sentence count, average sentence length, Flesch-Kincaid readability metric, and Gunning-Fog readability metric. As suggested by literature review, we use the basic-9 feature set with a Feed Forward Neural Network (FFNN) whose number of layers were varied as a function of (number of features + number of target authors)/2.
-# Implementation 
-I have used the keras library for implementing the CNN based model and the machine learning based models are implemented using scikitlearn. The code is attached above.
+
 
 # Results 
-Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods. A 5 Author setting is applying authorship attribution classifier on 5 authors from blogs dataset which have 100 articles each and are selected according to the average number of characters per artcile. These 5 are the ones with highest averages. Same goes for the 10 author setting as well. The following table reports the classification accuracies.
+Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
 
 |Setting   |Wrtiperints Static + SVM   |Basic-9 + FFNN   | CNN Method   |
 |---|---|---|---|
 |Blogs 5-Authors   |87%   |67%   |95%   |
 |Blogs 10-Authors   |78%   |35%   |85%   |
 
-As it can be seen, the deep learning model outperforms the machine learning based models. The reason in my point of view is the amount of data we have per author. Since we are using a 80-20 split, we have 80 articles per author to train and that gives the edge to CNN.
 
-The code used in this method is an implementation of CNN-Word-Word model from https://arxiv.org/abs/1609.06686
+# Instructions to Run Code
+## Demo
+[![Video Instructions to Run Code](https://i.ytimg.com/vi/qnMmEbggDm0/hqdefault.jpg)](https://www.youtube.com/watch?v=qnMmEbggDm0)
 
-
-# Related Work
-For literature review, i am going to take a look at the following research papers. They contain both the Deep learning model and machine learning model based approaches for solving the problem of authorship attribution. The two machine learning based model used in this project are Nueral networks with Basic-9 and Support vector machines with writeprints-static feature set. The deep learning model we use is a multi-channel CNN consisting of a static word embedding channel (word vectors trained by Word2Vec) and a non-static word embedding channel (word vectors trained initially by Word2Vec then updated during training).
-
-https://www.cs.drexel.edu/~sa499/papers/anonymouth.pdf
-
-https://www.aclweb.org/anthology/D14-1181
-
-https://arxiv.org/abs/1609.06686
-
-As mentioned in the resutls section, I compared the deep learning method with the state-of-the-art machine learning based authorship attribution methods. This clearly shows that even with the comprehensive set of hand crafted features, machine learning based systems cannot outperform the deep learning based systems which donot need any hand crafted features.
-
-# Conclusion
-Deep learning is out performing machine learning is every field now-a-days. The above mentioned results indicate the same thing. Machine learning algorithms need hand crafted features whereas Deep learning methods can identify the important features on the go. 
-
-In the future i would like to explore two avenues.
-
-1) I would try to see the affect on authorship attribution accuracy if we increase the number of authors to 100 or maybe 1000. This should be done because in real world scnerios, the set of probable authors is quite large.
-
-2) I also want to see the performance of our method if we have less number of documents per author. This too has a practical usecase as mostly we are provided with a huge collection of writings.
+This code requires python3.6. 
+1) Clone the repository: `git clone https://github.com/asad1996172/Authorship-attribution-using-CNN/`
+2) Create a conda environment: `conda create -n aacnn python=3.6`
+3) Activate the environment: `conda activate aacnn`
+4) Install the requirements:`pip install -r requirements.txt`
+5) Go to each folder and run classifier

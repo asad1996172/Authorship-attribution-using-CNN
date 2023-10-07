@@ -6,13 +6,15 @@ Usage:
     python3 classifier.py \
         --number_of_authors <NUM_AUTHORS>\
         --dataset <DATASET_TYPE> \
-        --train_test_data_path <PATH_TO_DATA>
+        --train_test_data_path <PATH_TO_DATA> \
+        --glove_model_path <PATH_TO_GLOVE_MODEL>
 
 Sample run command:
     python3 classifier.py \
         --number_of_authors 5 \
         --dataset blogs \
-        --train_test_data_path ../train_test_data
+        --train_test_data_path ../train_test_data \
+        --glove_model_path ../../glove.840B.300d.zip
 """
 import argparse
 import os
@@ -29,6 +31,7 @@ from keras.preprocessing import text
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 from keras.utils.np_utils import to_categorical
+from keras.utils.visualize_util import plot
 
 
 def download_glove(filepath: str):
@@ -124,6 +127,7 @@ def model_cnn_word_word(
     model.add(Dense(number_of_authors, activation="softmax"))
 
     model.compile(loss="categorical_crossentropy", optimizer="rmsprop", metrics=["acc"])
+    plot(model, to_file='model.png')
 
     print(model.summary())
 
@@ -240,7 +244,7 @@ def train_classifier(
     print(f"Shape of data tensor: {x_train.shape}")
     print(f"Shape of label tensor: {y_train.shape}\n")
 
-    glove_embedding_matrix = load_model(glove_filepath)
+    glove_embedding_matrix = {}
     print("Filling non existing words\n")
     glove_embedding_matrix = fill_in_missing_words_with_zeros(
         glove_embedding_matrix, tokenizer.word_index, embedding_dim
