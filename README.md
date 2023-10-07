@@ -1,4 +1,4 @@
-# Authorship Attribution (Stylometric Features VS CNNs)
+# Authorship Attribution (Stylometric Features VS Multi Channel CNNs)
 Authorship Attribution can be defined as, given a set of documents from a set of authors, identify the author of an unseen document. This project is an attempt to do authorship attribution on blogs dataset, using multi channel CNNs and compare its performance with the traditional Machine Learning methods using stylometric feature sets like basic-9 and writeprints. The results show that multi channel CNNs outperform the traditional Machine Learning methods.
 
 # Motivation
@@ -57,7 +57,7 @@ Basic - 9 Feature set used in this setting includes the following 9 features cov
 
 # Instructions to Run Code
 ## Demo
-<!-- [![Video Instructions to Run Code](https://i.ytimg.com/vi/qnMmEbggDm0/hqdefault.jpg)](https://www.youtube.com/watch?v=qnMmEbggDm0) -->
+[![Video Instructions to Run Code](https://i.ytimg.com/vi/2T7SlqPa8GQ/hqdefault.jpg)](https://www.youtube.com/watch?v=2T7SlqPa8GQ)
 
 This code requires python3.6. 
 1) Clone the repository: `git clone https://github.com/asad1996172/Authorship-attribution-using-CNN/`
@@ -68,9 +68,8 @@ This code requires python3.6.
 6) Go to each folder and run classifier
 
 # Results 
-Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
+Following table summarizes the results for 5 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
 
 |Setting   |Wrtiperints Static + SVM   |Basic-9 + FFNN   | Multi Channel CNN  |
 |---|---|---|---|
-|Blogs 5-Authors   |%   |%   |%   |
-|Blogs 10-Authors   |%   |%   |%   |
+|Blogs 5-Authors   |55%   |60%   |96%   |

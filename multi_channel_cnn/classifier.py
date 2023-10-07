@@ -244,7 +244,7 @@ def train_classifier(
     print(f"Shape of data tensor: {x_train.shape}")
     print(f"Shape of label tensor: {y_train.shape}\n")
 
-    glove_embedding_matrix = {}
+    glove_embedding_matrix = load_model(glove_filepath)
     print("Filling non existing words\n")
     glove_embedding_matrix = fill_in_missing_words_with_zeros(
         glove_embedding_matrix, tokenizer.word_index, embedding_dim
