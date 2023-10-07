@@ -15,6 +15,9 @@ cur_dir_path = os.path.dirname(os.path.realpath(__file__))
 def get_clean_text(input_text: str) -> str:
     """
     Convert input text to a clean string of words.
+
+    :param input_text: A string of text to clean.
+    :return: A string of clean text.
     """
     clean_text: List[str] = text.text_to_word_sequence(
         input_text, filters="", lower=False, split=" "
@@ -28,12 +31,8 @@ def characters_count(input_text: str) -> int:
     """
     Calculates character count including spaces.
 
-    Args:
-        input_text: A string of text to count characters.
-
-    Returns:
-        An integer representing the count of characters.
-
+    :param input_text: A string of text to count characters.
+    :return An integer representing the count of characters.
     """
     input_text = input_text.lower()
     char_count = len(str(input_text))
@@ -44,12 +43,8 @@ def average_character_per_word(input_text: str) -> float:
     """
     Calculates the average number of characters per word.
 
-    Args:
-        input_text: A string of text to calculate the average number of characters per word.
-
-    Returns:
-        A float representing the average number of characters per word.
-
+    :param input_text: A string of text to calculate the average number of characters per word.
+    :return: A float representing the average number of characters per word.
     """
     words: List[str] = text.text_to_word_sequence(
         input_text,
@@ -68,11 +63,8 @@ def frequency_of_letters(input_text: str) -> List[float]:
     """
     Calculates the frequency of letters in the input text.
 
-    Args:
-        input_text: A string of text to calculate the frequency of letters.
-
-    Returns:
-        A list of floats representing the frequency of each letter in the input text.
+    :param input_text: A string of text to calculate the frequency of letters.
+    :return: A list of floats representing the frequency of each letter in the input text.
     """
     input_text = str(input_text).lower()  # because it's case sensitive
     input_text = input_text.lower().replace(" ", "")
@@ -99,11 +91,10 @@ def most_common_letter_bigrams(input_text: str) -> List[float]:
     """
     Calculates the frequency of most common letter bigrams in the input text.
 
-    Args:
-        input_text: A string of text to calculate the frequency of most common letter bigrams.
-
-    Returns:
-        A list of floats representing the frequency of each most common letter bigram in the input text.
+    :param input_text: A string of text to calculate the frequency 
+        of most common letter bigrams.
+    :return A list of floats representing the frequency of each 
+        most common letter bigram in the input text.
     """
     bigrams = [
         "th",
@@ -177,11 +168,9 @@ def most_common_letter_trigrams(input_text: str) -> List[float]:
     """
     Calculates the frequency of occurrence of the most common letter trigrams in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of occurrence of the most common letter trigrams in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of 
+        occurrence of the most common letter trigrams in the input text.
     """
     trigrams = [
         "the",
@@ -235,11 +224,8 @@ def digits_percentage(input_text: str) -> float:
     """
     Calculates the percentage of digits out of total characters in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A float representing the percentage of digits out of total characters in the input text.
+    :param input_text: A string representing the input text.
+    :return A float representing the percentage of digits out of total characters in the input text.
     """
     input_text = input_text.lower()
     chars_count = len(str(input_text))
@@ -251,11 +237,8 @@ def characters_percentage(input_text: str) -> float:
     """
     Calculates the percentage of characters out of total characters in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A float representing the percentage of characters out of total characters in the input text.
+    :param input_text: A string representing the input text.
+    :return A float representing the percentage of characters out of total characters in the input text.
     """
     input_text = input_text.lower().replace(" ", "")
     characters = "abcdefghijklmnopqrstuvwxyz"
@@ -268,11 +251,8 @@ def upper_case_characters_percentage(input_text: str) -> float:
     """
     Calculates the percentage of uppercase characters out of total characters in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A float representing the percentage of uppercase characters out of total characters in the input text.
+    :param input_text: A string representing the input text.
+    :return A float representing the percentage of uppercase characters out of total characters in the input text.
     """
     input_text = input_text.replace(" ", "")
     characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -285,11 +265,8 @@ def frequency_of_digits(input_text: str) -> List[float]:
     """
     Calculates the frequency of digits in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of digits in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of digits in the input text.
     """
     digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     digits_counts = {}
@@ -309,12 +286,9 @@ def frequency_of_digits_numbers(input_text: str, digit_length: int) -> float:
     """
     Calculates the frequency of digits of a specific length in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-    digit_length: An integer representing the length of the digits to be counted.
-
-    Returns:
-    A float representing the frequency of digits of a specific length in the input text.
+    :param input_text: A string representing the input text.
+    :param digit_length: An integer representing the length of the digits to be counted.
+    :return A float representing the frequency of digits of a specific length in the input text.
     """
     input_text = str(input_text).lower()
     words = text.text_to_word_sequence(
@@ -337,11 +311,8 @@ def frequency_of_word_length(input_text: str) -> List[float]:
     """
     Calculates the frequency of words of specific lengths up to 15 in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of words of specific lengths up to 15 in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of words of specific lengths up to 15 in the input text.
     """
     lengths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     word_length_frequencies = {}
@@ -373,11 +344,8 @@ def frequency_of_special_characters(input_text: str) -> List[float]:
     """
     Calculates the frequency of special characters in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of special characters in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of special characters in the input text.
     """
     input_text = str(input_text).lower()
     special_characters = open(
@@ -411,11 +379,8 @@ def function_words_percentage(input_text: str) -> List[int]:
     """
     Calculates the frequency of function words in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of integers representing the frequency of function words in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of integers representing the frequency of function words in the input text.
     """
     function_words = open(
         cur_dir_path + "/writeprint_resources/function_word.txt", "r"
@@ -443,11 +408,8 @@ def frequency_of_punctuation_characters(input_text: str) -> List[float]:
     """
     Calculates the frequency of punctuation characters in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of punctuation characters in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of punctuation characters in the input text.
     """
     input_text = str(input_text).lower().replace(" ", "")
     special_characters = open(
@@ -480,11 +442,8 @@ def misspellings_percentage(input_text: str) -> float:
     """
     Calculates the percentage of misspelled words in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A float representing the percentage of misspelled words in the input text.
+    :param input_text: A string representing the input text.
+    :return A float representing the percentage of misspelled words in the input text.
     """
     misspelled_words = open(
         cur_dir_path + "/writeprint_resources/writeprints_misspellings.txt", "r"
@@ -504,11 +463,8 @@ def legomena(input_text: str) -> List[float]:
     """
     Calculates the ratio of hapax legomena and dis legomena in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the ratio of hapax legomena and dis legomena in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the ratio of hapax legomena and dis legomena in the input text.
     """
     freq = nltk.FreqDist(word for word in input_text.split())
     hapax = [key for key, val in freq.items() if val == 1]
@@ -525,11 +481,9 @@ def pos_tag_frequency(input_text: str) -> List[float]:
     """
     Calculates the frequency of each part-of-speech tag in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the frequency of each part-of-speech tag in the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the frequency of 
+        each part-of-speech tag in the input text.
     """
     pos_tags = []
     doc = nlp(str(input_text))
@@ -565,11 +519,8 @@ def total_words(input_text: str) -> int:
     """
     Calculates the total number of words in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    An integer representing the total number of words in the input text.
+    :param input_text: A string representing the input text.
+    :return An integer representing the total number of words in the input text.
     """
     words = text.text_to_word_sequence(
         input_text, filters=",.?!\"'`;:-()&$", lower=True, split=" "
@@ -581,11 +532,8 @@ def average_word_length(input_text: str) -> float:
     """
     Calculates the average length of words in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A float representing the average length of words in the input text.
+    :param input_text: A string representing the input text.
+    :return A float representing the average length of words in the input text.
     """
     words = text.text_to_word_sequence(
         input_text, filters=",.?!\"'`;:-()&$", lower=True, split=" "
@@ -600,11 +548,8 @@ def no_of_short_words(input_text: str) -> int:
     """
     Calculates the number of short words (3 characters or less) in the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    An integer representing the number of short words in the input text.
+    :param input_text: A string representing the input text.
+    :return An integer representing the number of short words in the input text.
     """
     words = text.text_to_word_sequence(
         input_text, filters=",.?!\"'`;:-()&$", lower=True, split=" "
@@ -620,11 +565,8 @@ def calculate_features(input_text: str) -> List[float]:
     """
     Calculates a list of features for the input text.
 
-    Args:
-    input_text: A string representing the input text.
-
-    Returns:
-    A list of floats representing the features of the input text.
+    :param input_text: A string representing the input text.
+    :return A list of floats representing the features of the input text.
     """
     feature_list = []
 

@@ -55,19 +55,9 @@ As suggested by literature review, these features are used with Support Vector M
 ### Basic - 9
 Basic - 9 Feature set used in this setting includes the following 9 features covering character-level, word-level and sentence-level features alongwith some readability metrics: character count (excluding whitespaces), number of unique words, lexical density (percentage of lexical words), average syllables per word, sentence count, average sentence length, Flesch-Kincaid readability metric, and Gunning-Fog readability metric. As suggested by literature review, we use the basic-9 feature set with a Feed Forward Neural Network (FFNN) whose number of layers were varied as a function of (number of features + number of target authors)/2.
 
-
-# Results 
-Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
-
-|Setting   |Wrtiperints Static + SVM   |Basic-9 + FFNN   | CNN Method   |
-|---|---|---|---|
-|Blogs 5-Authors   |87%   |67%   |95%   |
-|Blogs 10-Authors   |78%   |35%   |85%   |
-
-
 # Instructions to Run Code
 ## Demo
-[![Video Instructions to Run Code](https://i.ytimg.com/vi/qnMmEbggDm0/hqdefault.jpg)](https://www.youtube.com/watch?v=qnMmEbggDm0)
+<!-- [![Video Instructions to Run Code](https://i.ytimg.com/vi/qnMmEbggDm0/hqdefault.jpg)](https://www.youtube.com/watch?v=qnMmEbggDm0) -->
 
 This code requires python3.6. 
 1) Clone the repository: `git clone https://github.com/asad1996172/Authorship-attribution-using-CNN/`
@@ -75,3 +65,11 @@ This code requires python3.6.
 3) Activate the environment: `conda activate aacnn`
 4) Install the requirements:`pip install -r requirements.txt`
 5) Go to each folder and run classifier
+
+# Results 
+Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
+
+|Setting   |Wrtiperints Static + SVM   |Basic-9 + FFNN   | Multi Channel CNN  |
+|---|---|---|---|
+|Blogs 5-Authors   |%   |%   |%   |
+|Blogs 10-Authors   |%   |%   |%   |
