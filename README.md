@@ -61,10 +61,11 @@ Basic - 9 Feature set used in this setting includes the following 9 features cov
 
 This code requires python3.6. 
 1) Clone the repository: `git clone https://github.com/asad1996172/Authorship-attribution-using-CNN/`
-2) Create a conda environment: `conda create -n aacnn python=3.6`
-3) Activate the environment: `conda activate aacnn`
-4) Install the requirements:`pip install -r requirements.txt`
-5) Go to each folder and run classifier
+2) Install minconda: https://docs.conda.io/en/latest/miniconda.html
+3) Create a conda environment: `conda create -n aacnn python=3.6`
+4) Activate the environment: `conda activate aacnn`
+5) Install the requirements:`pip install -r requirements.txt`
+6) Go to each folder and run classifier
 
 # Results 
 Following table summarizes the results for 5 authors and 10 authors setting in blogs dataset. It shows that the our CNN method outperforms the traditional Machine Learning methods.
