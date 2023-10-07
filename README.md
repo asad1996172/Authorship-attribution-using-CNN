@@ -40,7 +40,7 @@ Original Paper: http://u.cs.biu.ac.il/~schlerj/schler_springsymp06.pdf.
 - Machine Learning: Scikit-Learn, Keras
 
 ### Multi Channel CNN
-I use Convolutional Neural Network (CNN) classifier with word embeddings for authorship attribution. More specifically, each word is mapped to a continuous-valued word vector using Word2Vec. Each input document is represented as a concatenation of word embeddings where each word embedding corresponds to a word in original document. The CNN model is trained using these document representations as input for authorship attribution. Then I train the multi-channel CNN consisting of a static word embedding channel (word vectors trained by Word2Vec) and a non-static word embedding channel (word vectors trained initially by Word2Vec then updated during training).
+I use Convolutional Neural Network (CNN) classifier with word embeddings for authorship attribution. More specifically, each word is mapped to a continuous-valued word vector using Glove embeddings. Each input document is represented as a concatenation of word embeddings where each word embedding corresponds to a word in original document. The CNN model is trained using these document representations as input for authorship attribution. Then I train the multi-channel CNN consisting of a static word embedding channel (word vectors trained by Glove embeddings) and a non-static word embedding channel (word vectors trained initially by Glove embeddings then updated during training).
 This feature set includes lexical and syntactic features.
 
 ![Model Diagram](./multi_channel_cnn/model.png)
